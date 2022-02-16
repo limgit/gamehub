@@ -1,0 +1,36 @@
+{
+  "compilerOptions": {
+    "sourceMap": true,
+    "noImplicitAny": true,
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "noUncheckedIndexedAccess": true,
+    "strict": true,
+    "strictNullChecks": true,
+    "strictPropertyInitialization": true,
+    "target": "es6",
+    "baseUrl": "./",
+    "moduleResolution": "node",
+    "removeComments": true,
+    "lib": [
+      // Defaults for target: es6
+      "DOM",
+      "DOM.Iterable",
+      "ES6",
+      "ScriptHost",
+      // Additional ones
+      "ES2019",
+    ],
+    "jsx": "react",
+    "paths": {
+      "@/*": ["app/*"],
+      "@client/*": ["app/client/src/*"],
+      "@server/*": ["app/server/*"]
+    }
+  },
+  "exclude": [
+    "node_modules/*",
+  ]
+}
