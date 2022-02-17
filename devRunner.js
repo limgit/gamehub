@@ -1,5 +1,4 @@
 const path = require('path');
-const chalk = require('chalk');
 
 const nodemon = require('nodemon');
 const webpack = require('webpack');
@@ -33,9 +32,9 @@ function startServer() {
       ],
     });
     nodemon.on('start', function () {
-      console.log(`${chalk.green('Server has started.')}`);
+      console.log('\nServer has started.');
     }).on('quit', function () {
-      console.log(`${chalk.green('Server has quit.')}`);
+      console.log('\nServer has quit.');
       process.exit();
     });
   }
