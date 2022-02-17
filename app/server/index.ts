@@ -3,6 +3,7 @@ import path from 'path';
 
 const appRoot = path.resolve(__dirname, '../../');
 const app = express();
+const PORT = 9010;
 
 // Serve static assets normally
 app.use(express.static(path.resolve(appRoot, 'build/client')));
@@ -13,6 +14,6 @@ app.get('*', (_, res) => {
   res.sendFile(path.resolve(appRoot, 'build/client/index.html'));
 });
 
-app.listen({ port: 3000 }, () => {
-  console.log('Server is running on port 3000');
+app.listen({ port: PORT }, () => {
+  console.log(`Server is running on port ${PORT}`);
 });
