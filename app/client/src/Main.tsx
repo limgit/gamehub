@@ -1,7 +1,7 @@
 import React from 'react';
 import { Routes, Route, Navigate } from 'react-router-dom';
 
-import Test from '@client/pages/test';
+import Lobby from '@client/pages/lobby';
 
 import { KEY_USERNAME } from '@client/consts';
 import { getLocalValue } from '@client/storage';
@@ -18,7 +18,7 @@ function Main() {
 
   return (
     <Routes>
-      <Route path="/test" element={<Test username={username} />} />
+      <Route path="/lobby" element={<Lobby username={username} />} />
     </Routes>
   );
 }
