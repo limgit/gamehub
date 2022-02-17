@@ -1,9 +1,15 @@
 import React from 'react';
-import { Heading } from '@chakra-ui/react';
+import { Routes, Route } from 'react-router-dom';
+
+import Home from '@client/pages';
+import Test from '@client/pages/test';
 
 function App() {
   return (
-    <Heading>Hello world!</Heading>
+    <Routes>
+      <Route path="/" element={<Home />} />
+      <Route path="/test" element={<Test />} />
+    </Routes>
   )
 }
 
