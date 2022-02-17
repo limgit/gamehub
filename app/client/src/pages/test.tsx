@@ -1,9 +1,12 @@
 import React from 'react';
 import { Heading } from '@chakra-ui/react';
 
-function Test() {
+interface TestProps {
+  username: string,
+};
+function Test({ username }: TestProps) {
   return (
-    <Heading>This is test route</Heading>
+    <Heading>This is test route {username}</Heading>
   )
 }
 
