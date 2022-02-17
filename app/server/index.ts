@@ -1,9 +1,13 @@
 import express from 'express';
 import path from 'path';
 
+import appRouter from './routes';
+
 const appRoot = path.resolve(__dirname, '../../');
 const app = express();
 const PORT = 9010;
+
+app.use(appRouter);
 
 // Serve static assets normally
 app.use(express.static(path.resolve(appRoot, 'build/client')));
