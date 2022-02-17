@@ -1,6 +1,6 @@
 export type GameID = 'lattice';
 
-export type Lobby = {
+export type Room = {
   roomId: string,
   gameId: GameID,
   maxPlayers: number,

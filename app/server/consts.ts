@@ -1,1 +1,1 @@
-export const KEY_LOBBY_LIST = 'lobbyList';
+export const KEY_ROOM_LIST = 'roomList';

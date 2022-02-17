@@ -1,4 +1,4 @@
-import { Lobby } from '@server/types';
+import { Room } from './types';
 
-// HTTP GET /api/lobby-list
-export type GetLobbyListRes = Lobby[];
+// HTTP GET /api/room-list
+export type GetRoomListRes = Room[];

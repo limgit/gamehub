@@ -1,18 +1,20 @@
 import express from 'express';
 
 import {
-  GetLobbyListRes,
+  GetRoomListRes,
 } from '@/protocol/api';
+import {
+  Room,
+} from '@/protocol/types';
 
 import { dbGetJson } from '@server/db';
-import { KEY_LOBBY_LIST } from '@server/consts';
-import { Lobby } from '@server/types';
+import { KEY_ROOM_LIST } from '@server/consts';
 
 const apiRouter = express.Router();
 
-apiRouter.get('/lobby-list', (_, res) => {
-  const lobbyList = dbGetJson<Lobby[]>(KEY_LOBBY_LIST);
-  const ret: GetLobbyListRes = lobbyList ?? [];
+apiRouter.get('/room-list', (_, res) => {
+  const roomList = dbGetJson<Room[]>(KEY_ROOM_LIST);
+  const ret: GetRoomListRes = roomList ?? [];
   res.send(ret);
 });
 
