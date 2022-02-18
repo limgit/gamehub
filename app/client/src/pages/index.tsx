@@ -1,5 +1,6 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
+import { v4 as uuid } from 'uuid';
 import {
   Button,
   Center,
@@ -10,7 +11,7 @@ import {
   VStack,
 } from '@chakra-ui/react';
 
-import { KEY_USERNAME } from '@client/consts';
+import { KEY_USERNAME, KEY_USERID } from '@client/consts';
 import { getLocalValue, setLocalValue } from '@client/storage';
 
 function genRandomName(): string {
@@ -30,6 +31,9 @@ function Home() {
 
   const onLoginClick = () => {
     setLocalValue(KEY_USERNAME, nameInput);
+    if (getLocalValue<string>(KEY_USERID) === undefined) {
+      setLocalValue(KEY_USERID, uuid());
+    }
     navigate('/lobby');
   }
 

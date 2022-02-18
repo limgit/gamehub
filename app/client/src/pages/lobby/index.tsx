@@ -50,7 +50,7 @@ function Lobby({ username }: LobbyProps) {
                 <RoomCard
                   roomId={room.roomId}
                   gameId={room.gameId}
-                  playerCount={room.currPlayers}
+                  playerCount={room.playerIds.length}
                   onClick={() => {}}
                 />
               </GridItem>
