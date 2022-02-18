@@ -7,8 +7,13 @@ import {
   GridItem,
   Heading,
   HStack,
+  Spacer,
   Spinner,
 } from '@chakra-ui/react';
+import {
+  BiPlus,
+  BiRefresh,
+} from 'react-icons/bi';
 
 import { GetRoomListRes } from '@/protocol/api';
 import { useGetReq } from '@client/hooks/useGetReq';
@@ -30,9 +35,10 @@ function Lobby({ username }: LobbyProps) {
         bgColor="orange.100"
       >
         <Heading size="md">Welcome, {username}!</Heading>
-        <HStack>
-          <Button size="sm" colorScheme="orange">방 생성</Button>
-          <Button size="sm" colorScheme="orange">새로고침</Button>
+        <HStack my={4}>
+          <Spacer />
+          <Button size="sm" colorScheme="orange" leftIcon={<BiPlus />}>방 생성</Button>
+          <Button size="sm" colorScheme="orange" leftIcon={<BiRefresh />}>새로고침</Button>
         </HStack>
         {data === undefined && error === undefined && (
           <Spinner />
