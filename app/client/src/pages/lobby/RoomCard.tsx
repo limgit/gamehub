@@ -54,7 +54,7 @@ function RoomCard({
         <Spacer />
         <Text>{playerCount} / {minPlayerCount}-{maxPlayerCount}</Text>
       </Flex>
-      <Text>게임: {gameIdToName(gameId)}</Text>
+      <Text>{gameIdToName(gameId)}</Text>
     </Box>
   );
 }
