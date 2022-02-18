@@ -13,6 +13,8 @@ import {
 import { GetRoomListRes } from '@/protocol/api';
 import { useGetReq } from '@client/hooks/useGetReq';
 
+import RoomCard, { EmptyRoomCard } from './RoomCard';
+
 type LobbyProps = {
   username: string,
 }
@@ -27,21 +29,30 @@ function Lobby({ username }: LobbyProps) {
         borderRadius="md"
         bgColor="orange.100"
       >
-        <Heading size="sm">Welcome, {username}!</Heading>
+        <Heading size="md">Welcome, {username}!</Heading>
         <HStack>
-          <Button colorScheme="orange">방 생성</Button>
-          <Button colorScheme="orange">새로고침</Button>
+          <Button size="sm" colorScheme="orange">방 생성</Button>
+          <Button size="sm" colorScheme="orange">새로고침</Button>
         </HStack>
         {data === undefined && error === undefined && (
           <Spinner />
         )}
         {data !== undefined && (
-          <Grid templateColumns="repeat(2, 1fr)">
+          <Grid templateColumns="repeat(2, 1fr)" gap={2} gridAutoRows="1fr">
             {data.map((room) => (
-              <GridItem
-                key={room.roomId}
-              >
-                {room.gameId}
+              <GridItem key={room.roomId}>
+                <RoomCard
+                  roomId={room.roomId}
+                  gameId={room.gameId}
+                  playerCount={room.currPlayers}
+                  maxPlayerCount={room.maxPlayers}
+                  onClick={() => {}}
+                />
+              </GridItem>
+            ))}
+            {new Array(Math.max(0, 6 - data.length)).fill(0).map((_, i) => (
+              <GridItem key={i}>
+                <EmptyRoomCard />
               </GridItem>
             ))}
           </Grid>

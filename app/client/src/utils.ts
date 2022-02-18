@@ -1,3 +1,5 @@
+import { GameID } from "@/protocol/types";
+
 type HTTPMethod = 'GET' | 'POST' | 'PUT' | 'DELETE';
 
 type CallAPIRet<Res> = {
@@ -38,4 +40,11 @@ export async function callAPI<Req extends any = undefined, Res extends any = und
       msg: `Unknown error (${msg})`,
     };
   }
+}
+
+export function gameIdToName(gameId: GameID): string {
+  const GAMENAME_MAP: { [key in GameID]: string } = {
+    'lattice': '라티스 하와이',
+  };
+  return GAMENAME_MAP[gameId];
 }
