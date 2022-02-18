@@ -1,4 +1,5 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 import {
   Box,
   Button,
@@ -11,6 +12,7 @@ import {
   Spinner,
 } from '@chakra-ui/react';
 import {
+  BiHome,
   BiPlus,
   BiRefresh,
 } from 'react-icons/bi';
@@ -24,6 +26,7 @@ type LobbyProps = {
   username: string,
 }
 function Lobby({ username }: LobbyProps) {
+  const navigate = useNavigate();
   const { data, error } = useGetReq<GetRoomListRes>('/api/room-list');
 
   return (
@@ -34,7 +37,11 @@ function Lobby({ username }: LobbyProps) {
         borderRadius="md"
         bgColor="orange.100"
       >
-        <Heading size="md">Welcome, {username}!</Heading>
+        <HStack>
+          <Heading size="md">Welcome, {username}!</Heading>
+          <Spacer />
+          <Button size="sm" colorScheme="orange" leftIcon={<BiHome />} onClick={() => navigate('/')}>홈으로</Button>
+        </HStack>
         <HStack my={4}>
           <Spacer />
           <Button size="sm" colorScheme="orange" leftIcon={<BiPlus />}>방 생성</Button>
