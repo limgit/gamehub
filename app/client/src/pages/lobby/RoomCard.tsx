@@ -7,6 +7,7 @@ import {
   Text,
 } from '@chakra-ui/react';
 
+import { GAME_META } from '@/common/gameMeta';
 import { GameID } from '@/protocol/types';
 
 import { gameIdToName } from '@client/utils';
@@ -29,13 +30,13 @@ type RoomCardProps = {
   roomId: string,
   gameId: GameID,
   playerCount: number,
-  minPlayerCount: number,
-  maxPlayerCount: number,
   onClick: () => void,
 }
 function RoomCard({
-  roomId, gameId, playerCount, minPlayerCount, maxPlayerCount, onClick,
+  roomId, gameId, playerCount, onClick,
 }: RoomCardProps) {
+  const minPlayerCount = GAME_META[gameId].minPlayers;
+  const maxPlayerCount = GAME_META[gameId].maxPlayers;
   return (
     <Box
       w="100%"
