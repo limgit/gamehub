@@ -51,6 +51,7 @@ function Lobby({ username }: LobbyProps) {
                   roomId={room.roomId}
                   gameId={room.gameId}
                   playerCount={room.currPlayers}
+                  minPlayerCount={room.minPlayers}
                   maxPlayerCount={room.maxPlayers}
                   onClick={() => {}}
                 />

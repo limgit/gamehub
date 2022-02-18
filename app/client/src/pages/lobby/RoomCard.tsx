@@ -29,11 +29,12 @@ type RoomCardProps = {
   roomId: string,
   gameId: GameID,
   playerCount: number,
+  minPlayerCount: number,
   maxPlayerCount: number,
   onClick: () => void,
 }
 function RoomCard({
-  roomId, gameId, playerCount, maxPlayerCount, onClick,
+  roomId, gameId, playerCount, minPlayerCount, maxPlayerCount, onClick,
 }: RoomCardProps) {
   return (
     <Box
@@ -50,7 +51,7 @@ function RoomCard({
       <Flex alignItems="center">
         <Heading size="sm">Room {roomId}</Heading>
         <Spacer />
-        <Text>{playerCount} / {maxPlayerCount}</Text>
+        <Text>{playerCount} / {minPlayerCount}-{maxPlayerCount}</Text>
       </Flex>
       <Text>게임: {gameIdToName(gameId)}</Text>
     </Box>
