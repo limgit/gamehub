@@ -45,7 +45,7 @@ function RoomCard({
       cursor="pointer"
       p={4}
       borderRadius="md"
-      bgColor="white"
+      bgColor={playerCount === maxPlayerCount ? 'gray.100' : 'white'}
     >
       <Flex alignItems="center">
         <Heading size="sm">Room {roomId}</Heading>
