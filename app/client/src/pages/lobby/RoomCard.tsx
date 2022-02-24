@@ -10,8 +10,6 @@ import {
 import { GAME_META } from '@/common/gameMeta';
 import { GameID } from '@/protocol/types';
 
-import { gameIdToName } from '@client/utils';
-
 export function EmptyRoomCard() {
   return (
     <Box
@@ -54,7 +52,7 @@ function RoomCard({
         <Spacer />
         <Text>{playerCount} / {minPlayerCount}-{maxPlayerCount}</Text>
       </Flex>
-      <Text>{gameIdToName(gameId)}</Text>
+      <Text>{GAME_META[gameId].name}</Text>
     </Box>
   );
 }

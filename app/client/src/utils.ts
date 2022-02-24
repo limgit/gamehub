@@ -41,10 +41,3 @@ export async function callAPI<Req extends any = undefined, Res extends any = und
     };
   }
 }
-
-export function gameIdToName(gameId: GameID): string {
-  const GAMENAME_MAP: { [key in GameID]: string } = {
-    'lattice': '라티스 하와이',
-  };
-  return GAMENAME_MAP[gameId];
-}
