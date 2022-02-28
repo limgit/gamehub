@@ -27,7 +27,7 @@ type LobbyProps = {
 }
 function Lobby({ username }: LobbyProps) {
   const navigate = useNavigate();
-  const { data, error } = useGetReq<GetRoomListRes>('/api/room-list');
+  const { data, error, mutate } = useGetReq<GetRoomListRes>('/api/room-list');
 
   return (
     <Center h="100vh">
@@ -45,7 +45,7 @@ function Lobby({ username }: LobbyProps) {
         <HStack my={4}>
           <Spacer />
           <Button size="sm" colorScheme="orange" leftIcon={<BiPlus />}>방 생성</Button>
-          <Button size="sm" colorScheme="orange" leftIcon={<BiRefresh />}>새로고침</Button>
+          <Button size="sm" colorScheme="orange" leftIcon={<BiRefresh />} onClick={() => mutate()}>새로고침</Button>
         </HStack>
         {data === undefined && error === undefined && (
           <Spinner />
