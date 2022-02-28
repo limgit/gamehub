@@ -1,4 +1,4 @@
-import { GameID } from '@/protocol/types';
+import { GameID } from './types';
 
 type GameMeta = {
   [key in GameID]: {

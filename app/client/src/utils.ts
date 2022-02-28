@@ -1,5 +1,3 @@
-import { GameID } from "@/protocol/types";
-
 type HTTPMethod = 'GET' | 'POST' | 'PUT' | 'DELETE';
 
 type CallAPIRet<Res> = {

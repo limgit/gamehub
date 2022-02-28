@@ -8,7 +8,7 @@ import {
 } from '@chakra-ui/react';
 
 import { GAME_META } from '@/common/gameMeta';
-import { GameID } from '@/protocol/types';
+import { GameID } from '@/common/types';
 
 export function EmptyRoomCard() {
   return (
